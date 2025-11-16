@@ -1,0 +1,293 @@
+/* --- CSS GERAL (style.css) - Projeto Leumas --- */
+
+/* 1. VARIÁVEIS DE COR E FONTES (PALETA AZUL) */
+:root {
+    --cor-primaria-dark: #0a2e5d;    /* Azul Marinho (para títulos, footer) */
+    --cor-primaria-action: #007bff;  /* Azul Vibrante (para botões, links) */
+    --cor-primaria-action-hover: #0056b3; /* Tom mais escuro para hover */
+    --cor-fundo-claro: #eef7ff;      /* Azul bem claro (para seções) */
+    --cor-fundo-branco: #ffffff;    /* Branco */
+    --cor-texto: #333333;           /* Cinza escuro para leitura */
+    --cor-branca: #ffffff;
+    --fonte-principal: 'Arial', sans-serif;
+}
+
+/* 2. RESET BÁSICO E ESTILOS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-principal);
+}
+
+body {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-primaria-action); /* Links usam o azul de ação */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    color: var(--cor-primaria-dark); /* Títulos usam o azul escuro */
+}
+
+h2 {
+    text-align: center;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* 3. ESTILOS DO HEADER (NAVBAR) */
+.navbar {
+    background-color: var(--cor-fundo-branco);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: right; /* Centraliza o menu */
+    align-items: center;
+    position: relative; /* Contexto para o logo e hambúrguer */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--cor-primaria-dark);
+    text-decoration: none;
+    
+    /* Posiciona o logo à esquerda */
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.logo:hover {
+    text-decoration: none;
+}
+
+/* Renomeado de .navbar nav para .menu-principal para clareza */
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu-principal a {
+    color: var(--cor-texto);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: 25px;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.menu-principal a:hover {
+    color: var(--cor-primaria-action);
+    text-decoration: none; /* Remove sublinhado no hover */
+}
+
+/* 4. SEÇÃO HERO (Página Inicial) */
+.hero {
+    background: var(--cor-primaria-dark);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--cor-branca);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: var(--cor-primaria-action-hover);
+    text-decoration: none;
+}
+
+/* 5. SEÇÃO "COMO FUNCIONA" (Página Inicial) */
+.how-it-works {
+    background-color: var(--cor-fundo-claro);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+.step {
+    flex-basis: 31%;
+    padding: 20px;
+}
+
+.step h3 {
+    color: var(--cor-primaria-action);
+}
+
+/* 6. SEÇÃO CTA SECUNDÁRIA (Página Inicial) */
+.cta-secondary {
+    background-color: var(--cor-fundo-branco);
+    text-align: center;
+}
+
+.cta-button-secondary {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-primaria-action);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid var(--cor-primaria-action);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    text-decoration: none;
+}
+
+/* 7. RODAPÉ */
+.footer {
+    background-color: var(--cor-primaria-dark);
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+.footer p {
+    color: #ccc;
+}
+
+
+/* 8. RESPONSIVIDADE E MENU HAMBÚRGUER (SEM JS) */
+
+/* Esconde a checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Estilo do ícone hambúrguer (o label) */
+.menu-hamburger {
+    display: none; /* Escondido em telas grandes */
+    cursor: pointer;
+    
+    /* Posiciona o ícone à direita */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.menu-hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background: var(--cor-primaria-dark);
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    /* Mostra o ícone hambúrguer */
+    .menu-hamburger {
+        display: block;
+    }
+    
+    /* Esconde o menu principal (desktop) */
+    .menu-principal {
+        display: none;
+        position: absolute;
+        top: 80px; /* Altura aproximada do navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo-branco);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .menu-principal ul {
+        flex-direction: column; /* Menu vira vertical */
+        width: 100%;
+    }
+
+    .menu-principal li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .menu-principal a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--cor-fundo-claro);
+        margin-left: 0; /* Reseta o margin-left do desktop */
+    }
+    .menu-principal a:hover {
+        background-color: var(--cor-fundo-claro);
+    }
+
+    /* A MÁGICA: Quando a checkbox está marcada, mostra o menu */
+    .menu-toggle:checked ~ .menu-principal {
+        display: block;
+    }
+    
+    /* Animação do X no hambúrguer */
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Ajuste do layout das steps na home */
+    .steps {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
