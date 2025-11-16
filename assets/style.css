@@ -66,18 +66,19 @@ section {
 
 .navbar .container {
     display: flex;
-    justify-content: right; /* Centraliza o menu */
     align-items: center;
-    position: relative; /* Contexto para o logo e hambúrguer */
+    position: relative;
 }
 
 .navbar .container a img {
     height: 120px;
-    margin-right: 300px;
 }
 
 
 /* Renomeado de .navbar nav para .menu-principal para clareza */
+.menu-principal {
+    margin-left: auto; /* <-- ISSO É TUDO */
+}
 .menu-principal ul {
     list-style: none;
     display: flex;
@@ -234,10 +235,6 @@ section {
         width: 100%;
         background-color: var(--cor-fundo-branco);
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .navbar .container a img {
-        margin-right: 250px; /* Remove o margin-right do desktop */
     }
 
     .menu-principal ul {
