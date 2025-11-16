@@ -236,6 +236,10 @@ section {
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
+    .navbar .container a img {
+        margin-right: 250px; /* Remove o margin-right do desktop */
+    }
+
     .menu-principal ul {
         flex-direction: column; /* Menu vira vertical */
         width: 100%;
