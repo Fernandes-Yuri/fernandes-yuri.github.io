@@ -71,21 +71,11 @@ section {
     position: relative; /* Contexto para o logo e hambúrguer */
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--cor-primaria-dark);
-    text-decoration: none;
-    
-    /* Posiciona o logo à esquerda */
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+.navbar .container a img {
+    height: 120px;
+    margin-right: 300px;
 }
-.logo:hover {
-    text-decoration: none;
-}
+
 
 /* Renomeado de .navbar nav para .menu-principal para clareza */
 .menu-principal ul {
@@ -211,8 +201,6 @@ section {
 .menu-hamburger {
     display: none; /* Escondido em telas grandes */
     cursor: pointer;
-    
-    /* Posiciona o ícone à direita */
     position: absolute;
     right: 20px;
     top: 50%;
@@ -222,9 +210,11 @@ section {
 
 .menu-hamburger span {
     display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
+    /* --- ALTERAÇÃO DE TAMANHO FEITA --- */
+    width: 32px;  /* Aumentado de 25px */
+    height: 4px; /* Aumentado de 3px */
+    margin: 6px 0; /* Aumentado de 5px */
+    /* --- FIM DA ALTERAÇÃO --- */
     background: var(--cor-primaria-dark);
     transition: 0.4s;
 }
@@ -271,16 +261,18 @@ section {
         display: block;
     }
     
-    /* Animação do X no hambúrguer */
+    /* --- ALTERAÇÃO DE ANIMAÇÃO "X" FEITA --- */
+    /* Ajustado para o novo tamanho do ícone */
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
+        transform: rotate(-45deg) translate(-7px, 8px);
     }
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
         opacity: 0;
     }
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
+        transform: rotate(45deg) translate(-7px, -8px);
     }
+    /* --- FIM DA ALTERAÇÃO --- */
 
     /* Ajuste do layout das steps na home */
     .steps {
