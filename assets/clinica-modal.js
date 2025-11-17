@@ -3,9 +3,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('clinic-modal');
+    const modalBox = document.querySelector('.modal-box'); 
     const modalCloseBtn = document.getElementById('modal-close-btn');
     const modalTitle = document.getElementById('modal-title');
     const modalContent = document.getElementById('modal-content');
+    const modalScrollTopBtn = document.getElementById('modal-scroll-top-btn'); 
     
     // DADOS DETALHADOS DAS CLÍNICAS (12 ESTADOS x 3 CLÍNICAS = 36 CLÍNICAS)
     const CLINIC_DATA = {
@@ -130,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     // 2. Galeria Placeholder
                     let galleryHtml = '';
                     for (let i = 1; i <= clinic.imagens; i++) {
-                        // Usando imagens placeholder do seu projeto para ilustrar
-                        const placeholderUrl = `/assets/imagens/logo.png`; 
-                        galleryHtml += `<div class="gallery-placeholder" style="background-image: url('${placeholderUrl}')">Foto ${i}</div>`;
+                        // MUDANÇA AQUI: Aponta para a sua imagem "embreve.png"
+                        const placeholderUrl = `./assets/imagens/embreve.png`; 
+                        galleryHtml += `<div class="gallery-placeholder" style="background-image: url('${placeholderUrl}')"></div>`; // Removido o texto "Foto X"
                     }
 
                     // 3. Estrutura do Card Detalhado
@@ -154,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
 
                                 <div class="clinic-gallery">
-                                    <p class="gallery-title">Galeria de Imagens (Apenas Ilustrativo)</p>
+                                    <p class="gallery-title">Galeria de Imagens (Disponível em breve)</p>
                                     <div class="gallery-grid">
                                         ${galleryHtml}
                                     </div>
@@ -185,5 +187,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('modal-open');
         }
     });
+
+    // --- Lógica de Scroll-to-Top ---
+    if (modalBox && modalScrollTopBtn) {
+        modalBox.addEventListener('scroll', () => {
+            if (modalBox.scrollTop > 200) {
+                modalScrollTopBtn.classList.add('visible');
+            } else {
+                modalScrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        modalScrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalBox.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
 });

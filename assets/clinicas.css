@@ -122,11 +122,6 @@
     opacity: 1;
 }
 
-/* Regra para prevenir o scroll no body (adicionar ao style.css) */
-body.modal-open {
-    overflow: hidden; 
-}
-
 .modal-box {
     background-color: var(--cor-fundo-branco);
     border-radius: 10px;
@@ -134,12 +129,47 @@ body.modal-open {
     max-width: 1200px; /* Aumentado o max-width */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     padding: 30px;
-    position: relative;
+    position: relative; /* Mantido para que o z-index funcione bem */
     max-height: 90vh;
-    overflow-y: auto;
+    overflow-y: auto; /* IMPORTANTE: Modal box é o elemento com scroll */
     transform: translateY(-20px);
     transition: transform 0.3s ease;
 }
+
+/* === NOVO: Botão Voltar ao Topo do Modal (FIXED) === */
+#modal-scroll-top-btn {
+    /* MUDANÇA AQUI: FIXED para ficar sobre a tela */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--cor-primaria-dark);
+    color: var(--cor-branca);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 2005; 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+#modal-scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#modal-scroll-top-btn:hover {
+    background-color: var(--cor-primaria-action);
+}
+/* === FIM DO NOVO BOTÃO === */
+
 
 .modal-overlay.visible .modal-box {
     transform: translateY(0);
