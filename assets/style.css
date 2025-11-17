@@ -292,6 +292,19 @@ section {
         font-size: 36px;
     }
 
+    /* --- RESPONSIVIDADE DO SOBRE NÓS --- */
+    .sobre-wrapper {
+        flex-direction: column-reverse; /* Imagem primeiro no mobile */
+    }
+
+    .sobre-texto, .sobre-imagem {
+        flex-basis: 100%;
+    }
+
+    .sobre-imagem img {
+        max-width: 250px; /* Diminui a logo no mobile */
+    }
+
     /* --- RESPONSIVIDADE DO FORMULÁRIO --- */
     .contato-wrapper {
         flex-direction: column;
@@ -646,7 +659,6 @@ section {
     resize: vertical; /* Permite ao usuário redimensionar verticalmente */
 }
 
-/* --- MUDANÇA 2.2: Estilo do Placeholder --- */
 .form-grupo textarea::placeholder {
     color: #888;
     font-style: italic;
@@ -662,7 +674,7 @@ section {
     box-shadow: 0 0 5px rgba(0,123,255,0.3);
 }
 
-/* ========= 13. BOTÃO WHATSAPP (IMAGEM) (NOVO) ========= */
+/* ========= 13. BOTÃO WHATSAPP (IMAGEM) ========= */
 
 .whatsapp-image-button {
     display: inline-block;
@@ -674,7 +686,6 @@ section {
 }
 
 .whatsapp-image-button img {
-    /* --- MUDANÇA 2.1: Tamanho da Imagem --- */
     max-width: 280px;   /* Define um limite de tamanho */
     width: 100%;        /* Responsivo até esse limite */
     height: auto;
@@ -684,4 +695,42 @@ section {
 .whatsapp-image-button:hover {
     transform: scale(1.05); /* Efeito de zoom */
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* ========= 14. SEÇÃO SOBRE NÓS (NOVA) ========= */
+
+.sobre-section {
+    background-color: var(--cor-fundo-branco); /* Alterna com a cor da seção de contato */
+}
+
+.sobre-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.sobre-texto {
+    flex-basis: 60%; /* Mais espaço para o texto */
+}
+
+.sobre-texto h3 {
+    color: var(--cor-primaria-action);
+    margin-top: 20px; /* Espaço entre os tópicos */
+}
+
+.sobre-texto p {
+    margin-bottom: 15px;
+}
+
+.sobre-imagem {
+    flex-basis: 40%;
+    text-align: center;
+}
+
+.sobre-imagem img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Deixa a logo redonda */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave */
 }
