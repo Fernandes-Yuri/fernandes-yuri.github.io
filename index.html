@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Leumas - Encontre a Clínica de Reabilitação Ideal</title>
+    <link rel="icon" type="image/png" href="./assets/imagens/favicon.png">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
             <div class="container">
                 <h1>Encontre Ajuda Profissional e Humanizada</h1>
                 <p>O Projeto Leumas conecta você e sua família às melhores e mais sérias clínicas de reabilitação do Brasil. Dê o primeiro passo para a recuperação.</p>
-                <a target="_blank" href="https://wa.me/5511965438698?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20m%C3%A9todos%20propostos%20pelo%20Projeto%20Leumas." class="cta-button">Fale com um Especialista Agora</a>
+                <a target="_blank" href="https://wa.me/5511965438698?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20informa%C3%C3%B5es%20sobre%20os%20m%C3%A9todos%20propostos%20pelo%20Projeto%20Leumas." class="cta-button">Fale com um Especialista Agora</a>
             </div>
         </section>
 
@@ -66,7 +67,7 @@
             <div class="container">
                 <h2>Não Sabe por Onde Começar?</h2>
                 <p>Nossa equipe de atendimento está disponível 24h para tirar suas dúvidas e oferecer o suporte necessário neste momento difícil.</p>
-                <a target="_blank" href="https://wa.me/5511965438698?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20m%C3%A9todos%20propostos%20pelo%20Projeto%20Leumas." class="cta-button-secondary">Ligue para Nós (Atendimento 24h)</a>
+                <a target="_blank" href="https://wa.me/5511965438698?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20informa%C3%C3%B5es%20sobre%20os%20m%C3%A9todos%20propostos%20pelo%20Projeto%20Leumas." class="cta-button-secondary">Ligue para Nós (Atendimento 24h)</a>
             </div>
         </section>
     </main>
@@ -77,6 +78,32 @@
             <p>Apoio na busca por recuperação e uma nova vida.</p>
             </div>
     </footer>
+
+    <div class="chat-launcher" id="chat-launcher">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+        </svg>
+    </div>
+
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <strong>Fale Conosco</strong>
+            <button class="chat-close-btn" id="chat-close-btn">&times;</button>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            </div>
+        
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button id="chat-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./assets/chat.js"></script>
 
 </body>
 </html>

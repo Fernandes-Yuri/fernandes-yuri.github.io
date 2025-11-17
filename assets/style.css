@@ -77,7 +77,7 @@ section {
 
 /* Renomeado de .navbar nav para .menu-principal para clareza */
 .menu-principal {
-    margin-left: auto; /* <-- ISSO É TUDO */
+    margin-left: auto;
 }
 .menu-principal ul {
     list-style: none;
@@ -221,6 +221,232 @@ section {
 }
 
 @media (max-width: 768px) {
+    /* Mostra o ícone hambúrguer */
+    .menu-hamburger {
+        display: block;
+    }
+    
+    /* Esconde o menu principal (desktop) */
+    .menu-principal {
+        display: none;
+        position: absolute;
+        top: 80px; /* Altura aproximada do navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo-branco);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .menu-principal ul {
+        flex-direction: column; /* Menu vira vertical */
+        width: 100%;
+    }
+
+    .menu-principal li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .menu-principal a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--cor-fundo-claro);
+        margin-left: 0; /* Reseta o margin-left do desktop */
+    }
+    .menu-principal a:hover {
+        background-color: var(--cor-fundo-claro);
+    }
+
+    /* A MÁGICA: Quando a checkbox está marcada, mostra o menu */
+    .menu-toggle:checked ~ .menu-principal {
+        display: block;
+    }
+    
+    /* --- ALTERAÇÃO DE ANIMAÇÃO "X" FEITA --- */
+    /* Ajustado para o novo tamanho do ícone */
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
+        transform: rotate(-45deg) translate(-7px, 8px);
+    }
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
+        transform: rotate(45deg) translate(-7px, -8px);
+    }
+    /* --- FIM DA ALTERAÇÃO --- */
+
+    /* Ajuste do layout das steps na home */
+    .steps {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+
+/* ========= 9. ESTILOS DO WIDGET DE CHAT RASA ========= */
+
+.chat-launcher {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.2s ease;
+}
+
+.chat-launcher:hover {
+    transform: scale(1.1);
+    background-color: var(--cor-primaria-action-hover);
+}
+
+.chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    max-width: 90%;
+    height: 500px;
+    background-color: var(--cor-fundo-branco);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex; /* Alterado de 'none' para 'flex' */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    
+    /* Começa escondido (será ativado via JS) */
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estado Ativo (controlado por JS) */
+.chat-widget.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.chat-header {
+    background-color: var(--cor-primaria-dark);
+    color: var(--cor-branca);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header strong {
+    font-size: 18px;
+}
+
+.chat-close-btn {
+    background: none;
+    border: none;
+    color: var(--cor-branca);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.chat-messages {
+    flex-grow: 1; /* Faz a área de msg ocupar o espaço */
+    padding: 15px;
+    overflow-y: auto; /* Adiciona scroll */
+    background-color: var(--cor-fundo-claro);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* --- (Estilos das bolhas de chat virão aqui depois) --- */
+
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: var(--cor-fundo-branco);
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#chat-send-btn {
+    background-color: var(--cor-primaria-action);
+    border: none;
+    color: var(--cor-branca);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+#chat-send-btn:hover {
+    background-color: var(--cor-primaria-action-hover);
+}
+
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word; /* Garante que o texto quebre */
+}
+
+.msg-bot {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-texto);
+    align-self: flex-start; /* Alinha à esquerda */
+    border-bottom-left-radius: 5px;
+}
+
+.msg-user {
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    align-self: flex-end; /* Alinha à direita */
+    border-bottom-right-radius: 5px;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+    /* Chat widget fica em tela cheia */
+    .chat-widget {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+    
+    .chat-launcher {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    /* --- Ajustes no Menu Hambúrguer (Repetido) --- */
+    
     /* Mostra o ícone hambúrguer */
     .menu-hamburger {
         display: block;
