@@ -302,12 +302,23 @@ section {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1001;
-    transition: transform 0.2s ease;
+    /* --- ALTERADO PARA AS NOVAS ANIMAÇÕES --- */
+    transition: all 0.3s ease; 
+    animation: pulse-glow 2.5s infinite;
 }
 
 .chat-launcher:hover {
     transform: scale(1.1);
     background-color: var(--cor-primaria-action-hover);
+    /* --- ADICIONADO PARA PAUSAR ANIMAÇÃO --- */
+    animation-play-state: paused;
+}
+
+/* --- ADICIONADO PARA ESCONDER O LAUNCHER --- */
+.chat-launcher.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.5); /* Animação de "encolher" */
 }
 
 .chat-widget {
@@ -320,7 +331,7 @@ section {
     background-color: var(--cor-fundo-branco);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: flex; /* Alterado de 'none' para 'flex' */
+    display: flex; 
     flex-direction: column;
     overflow: hidden;
     z-index: 1000;
@@ -371,7 +382,27 @@ section {
     gap: 10px;
 }
 
-/* --- (Estilos das bolhas de chat virão aqui depois) --- */
+/* --- Estilos das Bolhas de Mensagem --- */
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word; /* Garante que o texto quebre */
+}
+
+.msg-bot {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-texto);
+    align-self: flex-start; /* Alinha à esquerda */
+    border-bottom-left-radius: 5px;
+}
+
+.msg-user {
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    align-self: flex-end; /* Alinha à direita */
+    border-bottom-right-radius: 5px;
+}
 
 
 .chat-input-area {
@@ -408,28 +439,7 @@ section {
     background-color: var(--cor-primaria-action-hover);
 }
 
-.chat-message {
-    padding: 10px 15px;
-    border-radius: 18px;
-    max-width: 80%;
-    word-wrap: break-word; /* Garante que o texto quebre */
-}
-
-.msg-bot {
-    background-color: var(--cor-fundo-branco);
-    color: var(--cor-texto);
-    align-self: flex-start; /* Alinha à esquerda */
-    border-bottom-left-radius: 5px;
-}
-
-.msg-user {
-    background-color: var(--cor-primaria-action);
-    color: var(--cor-branca);
-    align-self: flex-end; /* Alinha à direita */
-    border-bottom-right-radius: 5px;
-}
-
-/* Ajuste para telas pequenas */
+/* Ajuste para telas pequenas (Mobile) */
 @media (max-width: 768px) {
     /* Chat widget fica em tela cheia */
     .chat-widget {
@@ -447,16 +457,14 @@ section {
     
     /* --- Ajustes no Menu Hambúrguer (Repetido) --- */
     
-    /* Mostra o ícone hambúrguer */
     .menu-hamburger {
         display: block;
     }
     
-    /* Esconde o menu principal (desktop) */
     .menu-principal {
         display: none;
         position: absolute;
-        top: 80px; /* Altura aproximada do navbar */
+        top: 80px;
         left: 0;
         width: 100%;
         background-color: var(--cor-fundo-branco);
@@ -464,7 +472,7 @@ section {
     }
 
     .menu-principal ul {
-        flex-direction: column; /* Menu vira vertical */
+        flex-direction: column;
         width: 100%;
     }
 
@@ -477,19 +485,16 @@ section {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
-        margin-left: 0; /* Reseta o margin-left do desktop */
+        margin-left: 0;
     }
     .menu-principal a:hover {
         background-color: var(--cor-fundo-claro);
     }
 
-    /* A MÁGICA: Quando a checkbox está marcada, mostra o menu */
     .menu-toggle:checked ~ .menu-principal {
         display: block;
     }
     
-    /* --- ALTERAÇÃO DE ANIMAÇÃO "X" FEITA --- */
-    /* Ajustado para o novo tamanho do ícone */
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
         transform: rotate(-45deg) translate(-7px, 8px);
     }
@@ -499,14 +504,29 @@ section {
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
         transform: rotate(45deg) translate(-7px, -8px);
     }
-    /* --- FIM DA ALTERAÇÃO --- */
 
-    /* Ajuste do layout das steps na home */
     .steps {
         flex-direction: column;
     }
 
     .hero h1 {
         font-size: 36px;
+    }
+}
+
+
+/* ========= 10. ANIMAÇÃO DO CHAT LAUNCHER ========= */
+
+/* Define a animação de "pulsar" */
+@keyframes pulse-glow {
+    0% {
+        /* O `rgba(0, 123, 255, 0.5)` é a cor --cor-primaria-action com 50% de opacidade */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 0 0 0 rgba(0, 123, 255, 0.5);
+    }
+    70% {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 0 0 15px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 0 0 0 rgba(0, 123, 255, 0);
     }
 }
