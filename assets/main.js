@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollToTopBtn = document.getElementById('scroll-to-top');
 
 
-    // Escutador de evento de Scroll (controla os dois)
+    // --- 3. ESCUTADOR DE EVENTO DE SCROLL (Controla Header e Botão Topo) ---
     window.addEventListener('scroll', () => {
         let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -44,6 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth' // Rolagem suave
+        });
+    });
+
+
+    // --- 4. LÓGICA DE FECHAR O MENU HAMBÚRGUER AO CLICAR (NOVO) ---
+    
+    // Seleciona a checkbox escondida que controla o menu
+    const menuToggle = document.getElementById('menu-toggle');
+    
+    // Seleciona todos os links dentro do menu principal
+    const menuLinks = document.querySelectorAll('.menu-principal a');
+
+    // Adiciona um "escutador" de clique para cada link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Se o menu-toggle existir (estamos no mobile)
+            if (menuToggle) {
+                // Desmarca a checkbox, o que faz o CSS esconder o menu
+                menuToggle.checked = false;
+            }
         });
     });
 
