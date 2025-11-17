@@ -62,7 +62,6 @@ section {
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* --- MUDANÇA AQUI --- */
     transition: transform 0.3s ease;
 }
 
@@ -76,7 +75,6 @@ section {
     height: 120px;
 }
 
-/* --- NOVA CLASSE ADICIONADA --- */
 .navbar.navbar-hidden {
     transform: translateY(-100%);
 }
@@ -97,6 +95,8 @@ section {
     transition: color 0.3s ease;
     margin-left: 25px;
     text-decoration: none; /* Remove sublinhado */
+    /* --- MUDANÇA AQUI --- */
+    font-size: 18px; /* Aumenta o tamanho da fonte */
 }
 
 .menu-principal a:hover {
@@ -256,6 +256,8 @@ section {
         padding: 15px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
         margin-left: 0; 
+        /* Mantém o tamanho bom no mobile */
+        font-size: 18px; 
     }
     .menu-principal a:hover {
         background-color: var(--cor-fundo-claro);
@@ -500,75 +502,7 @@ section {
 
 /* Ajuste para telas pequenas (Mobile) */
 @media (max-width: 768px) {
-    /* Chat widget fica em tela cheia */
-    .chat-widget {
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
-    }
-    
-    .chat-launcher {
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .menu-hamburger {
-        display: block;
-    }
-    
-    .menu-principal {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: var(--cor-fundo-branco);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .menu-principal ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .menu-principal li {
-        margin: 0;
-        text-align: center;
-    }
-
-    .menu-principal a {
-        display: block;
-        padding: 15px 0;
-        border-bottom: 1px solid var(--cor-fundo-claro);
-        margin-left: 0;
-    }
-    .menu-principal a:hover {
-        background-color: var(--cor-fundo-claro);
-    }
-
-    .menu-toggle:checked ~ .menu-principal {
-        display: block;
-    }
-    
-    .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
-        transform: rotate(-45deg) translate(-7px, 8px);
-    }
-    .menu-toggle:checked ~ .menu-hamburger span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
-        transform: rotate(45deg) translate(-7px, -8px);
-    }
-
-    .steps {
-        flex-direction: column;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
+    /* ... (regras de responsividade) ... */
 }
 
 
