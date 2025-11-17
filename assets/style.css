@@ -211,11 +211,9 @@ section {
 
 .menu-hamburger span {
     display: block;
-    /* --- ALTERAÇÃO DE TAMANHO FEITA --- */
-    width: 32px;  /* Aumentado de 25px */
-    height: 4px; /* Aumentado de 3px */
-    margin: 6px 0; /* Aumentado de 5px */
-    /* --- FIM DA ALTERAÇÃO --- */
+    width: 32px;
+    height: 4px;
+    margin: 6px 0;
     background: var(--cor-primaria-dark);
     transition: 0.4s;
 }
@@ -226,11 +224,10 @@ section {
         display: block;
     }
     
-    /* Esconde o menu principal (desktop) */
     .menu-principal {
         display: none;
         position: absolute;
-        top: 80px; /* Altura aproximada do navbar */
+        top: 80px;
         left: 0;
         width: 100%;
         background-color: var(--cor-fundo-branco);
@@ -238,7 +235,7 @@ section {
     }
 
     .menu-principal ul {
-        flex-direction: column; /* Menu vira vertical */
+        flex-direction: column;
         width: 100%;
     }
 
@@ -251,19 +248,16 @@ section {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
-        margin-left: 0; /* Reseta o margin-left do desktop */
+        margin-left: 0;
     }
     .menu-principal a:hover {
         background-color: var(--cor-fundo-claro);
     }
 
-    /* A MÁGICA: Quando a checkbox está marcada, mostra o menu */
     .menu-toggle:checked ~ .menu-principal {
         display: block;
     }
     
-    /* --- ALTERAÇÃO DE ANIMAÇÃO "X" FEITA --- */
-    /* Ajustado para o novo tamanho do ícone */
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(1) {
         transform: rotate(-45deg) translate(-7px, 8px);
     }
@@ -273,9 +267,7 @@ section {
     .menu-toggle:checked ~ .menu-hamburger span:nth-child(3) {
         transform: rotate(45deg) translate(-7px, -8px);
     }
-    /* --- FIM DA ALTERAÇÃO --- */
 
-    /* Ajuste do layout das steps na home */
     .steps {
         flex-direction: column;
     }
@@ -302,23 +294,20 @@ section {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1001;
-    /* --- ALTERADO PARA AS NOVAS ANIMAÇÕES --- */
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
     animation: pulse-glow 2.5s infinite;
 }
 
 .chat-launcher:hover {
     transform: scale(1.1);
     background-color: var(--cor-primaria-action-hover);
-    /* --- ADICIONADO PARA PAUSAR ANIMAÇÃO --- */
     animation-play-state: paused;
 }
 
-/* --- ADICIONADO PARA ESCONDER O LAUNCHER --- */
 .chat-launcher.hidden {
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.5); /* Animação de "encolher" */
+    transform: scale(0.5);
 }
 
 .chat-widget {
@@ -331,19 +320,17 @@ section {
     background-color: var(--cor-fundo-branco);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: flex; 
+    display: flex;
     flex-direction: column;
     overflow: hidden;
     z-index: 1000;
     
-    /* Começa escondido (será ativado via JS) */
     opacity: 0;
     transform: translateY(20px);
     visibility: hidden;
     transition: all 0.3s ease-in-out;
 }
 
-/* Estado Ativo (controlado por JS) */
 .chat-widget.active {
     opacity: 1;
     transform: translateY(0);
@@ -357,6 +344,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0; /* Impede que o header encolha */
 }
 
 .chat-header strong {
@@ -373,36 +361,92 @@ section {
 }
 
 .chat-messages {
-    flex-grow: 1; /* Faz a área de msg ocupar o espaço */
+    flex-grow: 1;
     padding: 15px;
-    overflow-y: auto; /* Adiciona scroll */
+    overflow-y: auto;
     background-color: var(--cor-fundo-claro);
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* --- Estilos das Bolhas de Mensagem --- */
+/* --- MUDANÇAS AQUI (Estilos das Bolhas) --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .chat-message {
+    max-width: 90%; /* Ajustado para acomodar avatar */
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-out; /* Animação de surgimento */
+}
+
+/* Mensagem do Bot (container do avatar + bolha) */
+.msg-bot {
+    align-self: flex-start;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.bot-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--cor-fundo-branco);
+    flex-shrink: 0;
+    overflow: hidden; /* Garante que a imagem fique redonda */
+}
+
+.bot-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre o espaço sem distorcer */
+}
+
+.msg-bot-bubble {
     padding: 10px 15px;
     border-radius: 18px;
-    max-width: 80%;
-    word-wrap: break-word; /* Garante que o texto quebre */
-}
-
-.msg-bot {
+    border-bottom-left-radius: 5px;
     background-color: var(--cor-fundo-branco);
     color: var(--cor-texto);
-    align-self: flex-start; /* Alinha à esquerda */
-    border-bottom-left-radius: 5px;
 }
 
+/* Mensagem do Usuário (bolha) */
 .msg-user {
+    padding: 10px 15px;
+    border-radius: 18px;
+    border-bottom-right-radius: 5px;
     background-color: var(--cor-primaria-action);
     color: var(--cor-branca);
-    align-self: flex-end; /* Alinha à direita */
-    border-bottom-right-radius: 5px;
+    align-self: flex-end;
 }
+/* --- FIM DAS MUDANÇAS NAS BOLHAS --- */
+
+
+/* --- NOVO: Indicador "Digitando..." --- */
+.typing-indicator {
+    padding: 10px 12px; /* Menor para os pontos */
+}
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #999;
+    animation: typing-bounce 1s infinite;
+    margin: 0 2px;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.1s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.2s; }
+/* --- FIM DO "DIGITANDO" --- */
 
 
 .chat-input-area {
@@ -410,6 +454,7 @@ section {
     padding: 10px;
     border-top: 1px solid #ddd;
     background-color: var(--cor-fundo-branco);
+    flex-shrink: 0; /* Impede que o input encolha */
 }
 
 #chat-input {
@@ -419,6 +464,11 @@ section {
     padding: 10px 15px;
     font-size: 14px;
     margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+#chat-input:disabled {
+    background-color: #f0f0f0; /* Feedback visual de desabilitado */
 }
 
 #chat-send-btn {
@@ -433,9 +483,15 @@ section {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease;
+    flex-shrink: 0;
 }
 
-#chat-send-btn:hover {
+#chat-send-btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+#chat-send-btn:hover:not(:disabled) {
     background-color: var(--cor-primaria-action-hover);
 }
 
@@ -454,8 +510,6 @@ section {
         bottom: 15px;
         right: 15px;
     }
-    
-    /* --- Ajustes no Menu Hambúrguer (Repetido) --- */
     
     .menu-hamburger {
         display: block;
@@ -517,10 +571,8 @@ section {
 
 /* ========= 10. ANIMAÇÃO DO CHAT LAUNCHER ========= */
 
-/* Define a animação de "pulsar" */
 @keyframes pulse-glow {
     0% {
-        /* O `rgba(0, 123, 255, 0.5)` é a cor --cor-primaria-action com 50% de opacidade */
         box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 0 0 0 rgba(0, 123, 255, 0.5);
     }
     70% {
@@ -528,5 +580,15 @@ section {
     }
     100% {
         box-shadow: 0 4px 10px rgba(0,0,0,0.2), 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+/* --- NOVO: Keyframe para "Digitando..." --- */
+@keyframes typing-bounce {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-4px);
     }
 }
