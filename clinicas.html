@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínicas Parceiras - Projeto Leumas</title>
+    <link rel="icon" type="image/png" href="./assets/imagens/favicon.png">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/clinicas.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo-link">
+            <img src="./assets/imagens/logo.png" alt="Logotipo do Projeto Leumas - Início">
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        
+        <label for="menu-toggle" class="menu-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="menu-principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+                <li><a href="clinicas.html" class="active">Clínicas Parceiras</a></li>
+                <li><a href="tratamentos.html">Tratamentos</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nossas Clínicas Parceiras</h1>
+                <p>Trabalhamos apenas com instituições sérias, licenciadas e que oferecem um tratamento digno e humanizado.</p>
+            </div>
+        </section>
+
+        <section class="clinicas-grid">
+            <div class="container">
+                <h2>Conheça Nossos Parceiros</h2>
+
+                <div class="grid-container">
+
+                    <div class="clinica-card">
+                        <div class="card-imagem">
+                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+1" alt="Fachada da Clínica Exemplo 1">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Clínica Exemplo 1 (SP)</h3>
+                            <p>Especializada em tratamento de alcoolismo e dependência química, com foco em terapia cognitivo-comportamental.</p>
+                            <span class="card-tag">Masculino</span>
+                            <span class="card-tag">Feminino</span>
+                            <span class="card-tag">Voluntária</span>
+                        </div>
+                    </div>
+
+                    <div class="clinica-card">
+                        <div class="card-imagem">
+                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+2" alt="Fachada da Clínica Exemplo 2">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Clínica Exemplo 2 (RJ)</h3>
+                            <p>Focada na reabilitação de adolescentes, com equipe multidisciplinar e apoio psicológico 24 horas.</p>
+                            <span class="card-tag">Adolescentes</span>
+                            <span class="card-tag">Involuntária</span>
+                        </div>
+                    </div>
+
+                    <div class="clinica-card">
+                        <div class="card-imagem">
+                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+3" alt="Fachada da Clínica Exemplo 3">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Clínica Exemplo 3 (MG)</h3>
+                            <p>Unidade de alto padrão, com foco em comorbidades psiquiátricas associadas à dependência.</p>
+                            <span class="card-tag">Alto Padrão</span>
+                            <span class="card-tag">Psiquiatria</span>
+                        </div>
+                    </div>
+                    
+                    </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Projeto Leumas. Todos os direitos reservados.</p>
+            <p>Apoio na busca por recuperação e uma nova vida.</p>
+            </div>
+    </footer>
+
+    <a href="#" id="scroll-to-top" class="scroll-to-top-btn" title="Voltar ao Topo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </a>
+
+    <div class="chat-launcher" id="chat-launcher">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+        </svg>
+    </div>
+
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <strong>Fale Conosco</strong>
+            <button class="chat-close-btn" id="chat-close-btn">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button id="chat-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <script src="./assets/main.js"></script>
+    <script src="./assets/chat.js"></script>
+
+</body>
+</html>
