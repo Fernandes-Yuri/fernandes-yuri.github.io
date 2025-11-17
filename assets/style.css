@@ -62,6 +62,8 @@ section {
     position: sticky;
     top: 0;
     z-index: 1000;
+    /* --- MUDANÇA AQUI --- */
+    transition: transform 0.3s ease;
 }
 
 .navbar .container {
@@ -72,6 +74,11 @@ section {
 
 .navbar .container a img {
     height: 120px;
+}
+
+/* --- NOVA CLASSE ADICIONADA --- */
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
 }
 
 
@@ -212,8 +219,8 @@ section {
 .menu-hamburger span {
     display: block;
     width: 32px;
-    height: 4px;
-    margin: 6px 0;
+    height: 4px; 
+    margin: 6px 0; 
     background: var(--cor-primaria-dark);
     transition: 0.4s;
 }
@@ -227,7 +234,7 @@ section {
     .menu-principal {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 80px; 
         left: 0;
         width: 100%;
         background-color: var(--cor-fundo-branco);
@@ -248,7 +255,7 @@ section {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
-        margin-left: 0;
+        margin-left: 0; 
     }
     .menu-principal a:hover {
         background-color: var(--cor-fundo-claro);
@@ -294,7 +301,7 @@ section {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1001;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
     animation: pulse-glow 2.5s infinite;
 }
 
@@ -307,7 +314,7 @@ section {
 .chat-launcher.hidden {
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.5);
+    transform: scale(0.5); 
 }
 
 .chat-widget {
@@ -320,7 +327,7 @@ section {
     background-color: var(--cor-fundo-branco);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: flex;
+    display: flex; 
     flex-direction: column;
     overflow: hidden;
     z-index: 1000;
@@ -370,7 +377,6 @@ section {
     gap: 10px;
 }
 
-/* --- MUDANÇAS AQUI (Estilos das Bolhas) --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -383,7 +389,7 @@ section {
 }
 
 .chat-message {
-    max-width: 90%; /* Ajustado para acomodar avatar */
+    max-width: 90%; 
     word-wrap: break-word;
     animation: fadeIn 0.3s ease-out; /* Animação de surgimento */
 }
@@ -401,7 +407,7 @@ section {
     height: 35px;
     border-radius: 50%;
     background-color: var(--cor-fundo-branco);
-    flex-shrink: 0;
+    flex-shrink: 0; 
     overflow: hidden; /* Garante que a imagem fique redonda */
 }
 
@@ -428,12 +434,10 @@ section {
     color: var(--cor-branca);
     align-self: flex-end;
 }
-/* --- FIM DAS MUDANÇAS NAS BOLHAS --- */
 
-
-/* --- NOVO: Indicador "Digitando..." --- */
+/* Indicador "Digitando..." */
 .typing-indicator {
-    padding: 10px 12px; /* Menor para os pontos */
+    padding: 10px 12px;
 }
 .typing-indicator span {
     display: inline-block;
@@ -446,7 +450,6 @@ section {
 }
 .typing-indicator span:nth-child(2) { animation-delay: 0.1s; }
 .typing-indicator span:nth-child(3) { animation-delay: 0.2s; }
-/* --- FIM DO "DIGITANDO" --- */
 
 
 .chat-input-area {
@@ -454,7 +457,7 @@ section {
     padding: 10px;
     border-top: 1px solid #ddd;
     background-color: var(--cor-fundo-branco);
-    flex-shrink: 0; /* Impede que o input encolha */
+    flex-shrink: 0; 
 }
 
 #chat-input {
@@ -468,7 +471,7 @@ section {
 }
 
 #chat-input:disabled {
-    background-color: #f0f0f0; /* Feedback visual de desabilitado */
+    background-color: #f0f0f0; 
 }
 
 #chat-send-btn {
@@ -583,12 +586,48 @@ section {
     }
 }
 
-/* --- NOVO: Keyframe para "Digitando..." --- */
 @keyframes typing-bounce {
-    0%, 60%, 100% {
-        transform: translateY(0);
+    0%, 60%, 100% { 
+        transform: translateY(0); 
     }
-    30% {
-        transform: translateY(-4px);
+    30% { 
+        transform: translateY(-4px); 
     }
+}
+
+/* ========= 11. SCROLL-TO-TOP BOTÃO (NOVO) ========= */
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    /* Colocado na esquerda para não brigar com o chat */
+    left: 25px;
+    width: 50px; /* Um pouco menor que o chat */
+    height: 50px;
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    
+    /* Controlado por JS */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+    background-color: var(--cor-primaria-action-hover);
+    transform: scale(1.1);
 }
