@@ -20,6 +20,11 @@
     font-family: var(--fonte-principal);
 }
 
+/* Adicionado para rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--cor-fundo-branco);
     color: var(--cor-texto);
@@ -95,7 +100,6 @@ section {
     transition: color 0.3s ease;
     margin-left: 25px;
     text-decoration: none; /* Remove sublinhado */
-    /* --- MUDANÇA AQUI --- */
     font-size: 18px; /* Aumenta o tamanho da fonte */
 }
 
@@ -132,6 +136,10 @@ section {
     font-weight: bold;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    /* --- ADICIONADO P/ FORMULÁRIO --- */
+    border: none;
+    cursor: pointer;
+    display: inline-block; /* Garante consistência */
 }
 
 .cta-button:hover {
@@ -256,7 +264,6 @@ section {
         padding: 15px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
         margin-left: 0; 
-        /* Mantém o tamanho bom no mobile */
         font-size: 18px; 
     }
     .menu-principal a:hover {
@@ -283,6 +290,20 @@ section {
 
     .hero h1 {
         font-size: 36px;
+    }
+
+    /* --- RESPONSIVIDADE DO FORMULÁRIO --- */
+    .contato-wrapper {
+        flex-direction: column;
+    }
+
+    .contato-info, .contato-form {
+        flex-basis: 100%; /* Ocupa 100% no mobile */
+    }
+
+    /* --- RESPONSIVIDADE DO BOTÃO WHATSAPP --- */
+    .whatsapp-image-button img {
+        max-width: 100%; /* Ocupa 100% no mobile */
     }
 }
 
@@ -529,14 +550,13 @@ section {
     }
 }
 
-/* ========= 11. SCROLL-TO-TOP BOTÃO (NOVO) ========= */
+/* ========= 11. SCROLL-TO-TOP BOTÃO ========= */
 
 .scroll-to-top-btn {
     position: fixed;
     bottom: 25px;
-    /* Colocado na esquerda para não brigar com o chat */
     left: 25px;
-    width: 50px; /* Um pouco menor que o chat */
+    width: 50px;
     height: 50px;
     background-color: var(--cor-primaria-action);
     color: var(--cor-branca);
@@ -548,7 +568,6 @@ section {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 1000;
     
-    /* Controlado por JS */
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -564,4 +583,105 @@ section {
 .scroll-to-top-btn:hover {
     background-color: var(--cor-primaria-action-hover);
     transform: scale(1.1);
+}
+
+/* ========= 12. SEÇÃO DE CONTATO (FORMULÁRIO) ========= */
+.contato-section {
+    background-color: var(--cor-fundo-claro);
+}
+
+.contato-section p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.contato-wrapper {
+    display: flex;
+    gap: 40px;
+    background-color: var(--cor-fundo-branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    border: 2px solid #ccc; /* Borda mais grossa e escura */
+}
+
+.contato-info, .contato-form {
+    flex-basis: 50%; /* Divide em 50% cada coluna */
+}
+
+.contato-info h3, .contato-form h3 {
+    margin-top: 0;
+    color: var(--cor-primaria-action);
+}
+
+.contato-info p {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-grupo {
+    margin-bottom: 20px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+.form-grupo input[type="text"],
+.form-grupo input[type="email"],
+.form-grupo input[type="tel"],
+.form-grupo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-grupo textarea {
+    resize: vertical; /* Permite ao usuário redimensionar verticalmente */
+}
+
+/* --- MUDANÇA 2.2: Estilo do Placeholder --- */
+.form-grupo textarea::placeholder {
+    color: #888;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.form-grupo input[type="text"]:focus,
+.form-grupo input[type="email"]:focus,
+.form-grupo input[type="tel"]:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria-action);
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+/* ========= 13. BOTÃO WHATSAPP (IMAGEM) (NOVO) ========= */
+
+.whatsapp-image-button {
+    display: inline-block;
+    margin-top: 15px;
+    border-radius: 10px; /* Arredonda os cantos da imagem */
+    overflow: hidden; /* Garante que a imagem se ajuste ao radius */
+    line-height: 0; /* Remove espaço extra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-image-button img {
+    /* --- MUDANÇA 2.1: Tamanho da Imagem --- */
+    max-width: 280px;   /* Define um limite de tamanho */
+    width: 100%;        /* Responsivo até esse limite */
+    height: auto;
+    display: block; /* Remove espaço extra */
+}
+
+.whatsapp-image-button:hover {
+    transform: scale(1.05); /* Efeito de zoom */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
 }
