@@ -9,8 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. LÓGICA DO BOTÃO "VOLTAR AO TOPO" ---
     const scrollToTopBtn = document.getElementById('scroll-to-top');
 
+    // --- 3. LÓGICA DO MODAL DA LEI 10.216 ---
+    const lawModal = document.getElementById('law-modal');
+    const lawModalOpenBtn = document.getElementById('open-law-modal');
+    const lawModalCloseBtn = document.getElementById('law-modal-close-btn');
 
-    // --- 3. ESCUTADOR DE EVENTO DE SCROLL (Controla Header e Botão Topo) ---
+    // --- 4. ESCUTADOR DE EVENTO DE SCROLL (Controla Header e Botão Topo) ---
     window.addEventListener('scroll', () => {
         let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -38,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. AÇÃO DE CLICK DO BOTÃO "VOLTAR AO TOPO" ---
+    // --- 5. AÇÃO DE CLICK DO BOTÃO "VOLTAR AO TOPO" ---
     scrollToTopBtn.addEventListener('click', (event) => {
         event.preventDefault(); // Impede que o '#' vá para a URL
         window.scrollTo({
@@ -48,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 4. LÓGICA DE FECHAR O MENU HAMBÚRGUER AO CLICAR (NOVO) ---
+    // --- 6. LÓGICA DE FECHAR O MENU HAMBÚRGUER AO CLICAR ---
     
     // Seleciona a checkbox escondida que controla o menu
     const menuToggle = document.getElementById('menu-toggle');
@@ -59,12 +63,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adiciona um "escutador" de clique para cada link
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
-            // Se o menu-toggle existir (estamos no mobile)
             if (menuToggle) {
-                // Desmarca a checkbox, o que faz o CSS esconder o menu
                 menuToggle.checked = false;
             }
         });
     });
+
+    // --- 7. LÓGICA DO MODAL DA LEI ---
+    if (lawModalOpenBtn && lawModal && lawModalCloseBtn) {
+
+        // Abrir Modal
+        lawModalOpenBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            lawModal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        });
+
+        // Fechar Modal (Botão X)
+        lawModalCloseBtn.addEventListener('click', () => {
+            lawModal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        });
+
+        // Fechar Modal (Clicar no Overlay)
+        lawModal.addEventListener('click', (e) => {
+            if (e.target === lawModal) {
+                lawModal.classList.remove('visible');
+                document.body.classList.remove('modal-open');
+            }
+        });
+    }
 
 });
