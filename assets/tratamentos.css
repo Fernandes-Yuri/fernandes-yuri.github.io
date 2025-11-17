@@ -1,0 +1,104 @@
+/* --- CSS Específico da Página de Tratamentos (tratamentos.css) --- */
+
+/* Hero (cabeçalho) de páginas internas */
+.page-hero {
+    background-color: var(--cor-primaria-dark);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 60px 0;
+}
+
+.page-hero h1 {
+    color: var(--cor-branca);
+    font-size: 36px;
+}
+
+.page-hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Estilo do Conteúdo da Página */
+.tratamentos-conteudo {
+    background-color: var(--cor-fundo-branco);
+    padding: 60px 0;
+}
+
+.container-tratamento {
+    max-width: 900px; /* Mais estreito para leitura */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tratamentos-conteudo .intro-text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Estilo do "Roadmap" */
+.roadmap-step {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 8px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--cor-primaria-action);
+    transition: box-shadow 0.3s ease;
+}
+
+.roadmap-step:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.roadmap-step h3 {
+    color: var(--cor-primaria-dark);
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Numeração dos Passos */
+.roadmap-step h3 span {
+    display: inline-block;
+    background-color: var(--cor-primaria-action);
+    color: var(--cor-branca);
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.tratamentos-conteudo p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.tratamentos-conteudo ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.tratamentos-conteudo li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* Bloco de Destaque para Conteúdo Integrado */
+.destaque-tratamento {
+    background-color: var(--cor-fundo-branco);
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.destaque-tratamento strong {
+    color: var(--cor-primaria-action);
+    display: block;
+    margin-bottom: 5px;
+}
