@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Estrutura complexa: Avatar + Bolha de texto
             messageElement.innerHTML = `
                 <div class="bot-avatar">
-                    <img src="./assets/imagens/favicon.png" alt="Bot"> 
+                    <img src="./assets/imagens/avatar.png" alt="Bot"> 
                 </div>
                 <div class="msg-bot-bubble"></div>
             `;
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // A estrutura do "digitando" também inclui o avatar
         typingElement.innerHTML = `
             <div class="bot-avatar">
-                <img src="./assets/imagens/favicon.png" alt="Bot">
+                <img src="./assets/imagens/avatar.png" alt="Bot">
             </div>
             <div class="msg-bot-bubble typing-indicator">
                 <span></span><span></span><span></span>
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const transferText = text || "Entendido. Estou transferindo você para um especialista no WhatsApp.";
         addMessage('bot', transferText); // Salva esta mensagem também
 
-        const whatsappLink = "https://wa.me/5511965438698?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20m%C3%A9todos%20propostos%20pelo%20Projeto%20Leumas.";
+        const whatsappLink = "https://wa.me/5511965438698?text=Ol%C3%A1%C2%A0gostaria%C2%A0de%C2%A0saber%C2%A0mais%C2%A0informa%C3%A7%C3%B5es%C2%A0sobre%C2%A0os%C2%A0m%C3%A9todos%C2%A0propostos%C2%A0pelo%C2%A0Projeto%C2%A0Leumas.";
         
         setTimeout(() => {
             window.open(whatsappLink, '_blank');
