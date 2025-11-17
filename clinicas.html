@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínicas Parceiras - Projeto Leumas</title>
+    <title>Clínicas Parceiras por Estado - Projeto Leumas</title>
+    
     <link rel="icon" type="image/png" href="./assets/imagens/favicon.png">
+    
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/clinicas.css">
 </head>
@@ -38,97 +40,157 @@
     <main>
         <section class="page-hero">
             <div class="container">
-                <h1>Nossas Clínicas Parceiras</h1>
-                <p>Trabalhamos apenas com instituições sérias, licenciadas e que oferecem um tratamento digno e humanizado.</p>
+                <h1>Encontre a Clínica na Sua Região</h1>
+                <p>Nossas clínicas parceiras estão estrategicamente localizadas para oferecer tratamento de qualidade em diversas regiões do Brasil. Selecione seu estado para ver as opções.</p>
             </div>
         </section>
 
-        <section class="clinicas-grid">
+        <section class="clinicas-grid" id="clinicas-grid-top">
             <div class="container">
-                <h2>Conheça Nossos Parceiros</h2>
+                <h2>Selecione o Estado e Encontre a Unidade Ideal (12 Opções)</h2>
 
                 <div class="grid-container">
 
-                    <div class="clinica-card">
-                        <div class="card-imagem">
-                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+1" alt="Fachada da Clínica Exemplo 1">
-                        </div>
-                        <div class="card-conteudo">
-                            <h3>Clínica Exemplo 1 (SP)</h3>
-                            <p>Especializada em tratamento de alcoolismo e dependência química, com foco em terapia cognitivo-comportamental.</p>
-                            <span class="card-tag">Masculino</span>
-                            <span class="card-tag">Feminino</span>
-                            <span class="card-tag">Voluntária</span>
-                        </div>
-                    </div>
-
-                    <div class="clinica-card">
-                        <div class="card-imagem">
-                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+2" alt="Fachada da Clínica Exemplo 2">
-                        </div>
-                        <div class="card-conteudo">
-                            <h3>Clínica Exemplo 2 (RJ)</h3>
-                            <p>Focada na reabilitação de adolescentes, com equipe multidisciplinar e apoio psicológico 24 horas.</p>
-                            <span class="card-tag">Adolescentes</span>
-                            <span class="card-tag">Involuntária</span>
-                        </div>
-                    </div>
-
-                    <div class="clinica-card">
-                        <div class="card-imagem">
-                            <img src="https://via.placeholder.com/400x250.png?text=Foto+da+Clínica+3" alt="Fachada da Clínica Exemplo 3">
-                        </div>
-                        <div class="card-conteudo">
-                            <h3>Clínica Exemplo 3 (MG)</h3>
-                            <p>Unidade de alto padrão, com foco em comorbidades psiquiátricas associadas à dependência.</p>
-                            <span class="card-tag">Alto Padrão</span>
-                            <span class="card-tag">Psiquiatria</span>
-                        </div>
+                    <div class="estado-card">
+                        <h3>São Paulo (SP)</h3>
+                        <p>O maior número de clínicas de alto padrão e especializadas.</p>
+                        <a href="#" class="open-modal-btn" data-state="SP">Ver Opções em SP</a>
                     </div>
                     
+                    <div class="estado-card">
+                        <h3>Minas Gerais (MG)</h3>
+                        <p>Opções de tratamento com foco em tranquilidade e ambiente rural.</p>
+                        <a href="#" class="open-modal-btn" data-state="MG">Ver Opções em MG</a>
                     </div>
+
+                    <div class="estado-card">
+                        <h3>Rio de Janeiro (RJ)</h3>
+                        <p>Clínicas na capital e na região serrana, próximas à família.</p>
+                        <a href="#" class="open-modal-btn" data-state="RJ">Ver Opções em RJ</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Espírito Santo (ES)</h3>
+                        <p>Unidades com foco no litoral e atendimento humanizado.</p>
+                        <a href="#" class="open-modal-btn" data-state="ES">Ver Opções em ES</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Paraná (PR)</h3>
+                        <p>Principal polo de reabilitação da Região Sul, com foco em reinserção social.</p>
+                        <a href="#" class="open-modal-btn" data-state="PR">Ver Opções em PR</a>
+                    </div>
+
+                    <div class="estado-card">
+                        <h3>Santa Catarina (SC)</h3>
+                        <p>Unidades em regiões de clima ameno e alto índice de recuperação.</p>
+                        <a href="#" class="open-modal-btn" data-state="SC">Ver Opções em SC</a>
+                    </div>
+
+                    <div class="estado-card">
+                        <h3>Rio Grande do Sul (RS)</h3>
+                        <p>Clínicas com foco em apoio familiar e terapias alternativas.</p>
+                        <a href="#" class="open-modal-btn" data-state="RS">Ver Opções em RS</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Bahia (BA)</h3>
+                        <p>Parceiros com foco em ambientes acolhedores e terapias complementares na Região Nordeste.</p>
+                        <a href="#" class="open-modal-btn" data-state="BA">Ver Opções em BA</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Pernambuco (PE)</h3>
+                        <p>Clínicas na capital e interior para diferentes tipos de tratamento.</p>
+                        <a href="#" class="open-modal-btn" data-state="PE">Ver Opções em PE</a>
+                    </div>
+
+                    <div class="estado-card">
+                        <h3>Ceará (CE)</h3>
+                        <p>Unidades com foco em tratamentos de médio e longo prazo.</p>
+                        <a href="#" class="open-modal-btn" data-state="CE">Ver Opções em CE</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Goiás (GO)</h3>
+                        <p>Polo de clínicas no Centro-Oeste, próximas ao DF.</p>
+                        <a href="#" class="open-modal-btn" data-state="GO">Ver Opções em GO</a>
+                    </div>
+                    
+                    <div class="estado-card">
+                        <h3>Distrito Federal (DF)</h3>
+                        <p>Temos opções com foco em alto padrão e atendimento rápido no DF.</p>
+                        <a href="#" class="open-modal-btn" data-state="DF">Ver Opções em DF</a>
+                    </div>
+                    
+                </div>
+
+                <div class="outros-estados">
+                    <h3>Não encontrou seu Estado?</h3>
+                    <p>Atendemos em **todas as capitais** e temos parceiros em outras regiões (Nordeste, Centro-Oeste e Sul). Clique abaixo para uma consulta imediata e sigilosa.</p>
+                    <a target="_blank" href="https://wa.me/5511965438698?text=Ol%C3%A1%2C%20busco%20cl%C3%ADnicas%20em%20outros%20estados%20(consulta%20geral)." class="cta-button-secondary">Fale com a Central de Vagas (24h)</a>
+                </div>
+
             </div>
         </section>
         
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Projeto Leumas. Todos os direitos reservados.</p>
-            <p>Apoio na busca por recuperação e uma nova vida.</p>
-            </div>
-    </footer>
-
-    <a href="#" id="scroll-to-top" class="scroll-to-top-btn" title="Voltar ao Topo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-        </svg>
-    </a>
-
-    <div class="chat-launcher" id="chat-launcher">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
-        </svg>
-    </div>
-
-    <div class="chat-widget" id="chat-widget">
-        <div class="chat-header">
-            <strong>Fale Conosco</strong>
-            <button class="chat-close-btn" id="chat-close-btn">&times;</button>
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Projeto Leumas. Todos os direitos reservados.</p>
+        <p>Apoio na busca por recuperação e uma nova vida.</p>
         </div>
-        <div class="chat-messages" id="chat-messages"></div>
-        <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-            <button id="chat-send-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-            </button>
-        </div>
+</footer>
+
+<a href="#" id="scroll-to-top" class="scroll-to-top-btn" title="Voltar ao Topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+</a>
+
+<div class="chat-launcher" id="chat-launcher">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+    </svg>
+</div>
+
+<div class="chat-widget" id="chat-widget">
+    <div class="chat-header">
+        <strong>Fale Conosco</strong>
+        <button class="chat-close-btn" id="chat-close-btn">&times;</button>
     </div>
     
-    <script src="./assets/main.js"></script>
-    <script src="./assets/chat.js"></script>
+    <div class="chat-messages" id="chat-messages">
+        </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+        <button id="chat-send-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+
+<div id="clinic-modal" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h2 id="modal-title">Clínicas Parceiras</h2>
+            <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+        </div>
+        <div id="modal-content">
+            <p>Selecione um estado...</p>
+        </div>
+    </div>
+</div>
+
+
+<script src="./assets/main.js"></script>
+<script src="./assets/chat.js"></script>
+<script src="./assets/clinicas-modal.js"></script>
 
 </body>
 </html>
