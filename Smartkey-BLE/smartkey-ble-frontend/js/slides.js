@@ -105,6 +105,7 @@ function renderSlide(s, isActive) {
     case 'roadmap':      body = renderRoadmap(s);     break;
     case 'author':       body = renderAuthor(s);      break;
     case 'conclusion':   body = renderConclusion(s);  break;
+    case 'animation':    body = renderAnimation(s);   break;
     default:             body = `<p style="color:var(--muted)">Tipo desconhecido: ${s.type}</p>`;
   }
 
@@ -437,6 +438,137 @@ function renderConclusion(s) {
       <i class="fa-solid fa-arrow-down" style="color:var(--muted);font-size:12px;margin-left:auto"></i>
     </a>` : ''}
     `;
+}
+
+function renderAnimation(s) {
+  const id = s.id;
+  return `
+    ${renderTitleSub(s)}
+    <div style="display:flex;flex-direction:column;gap:10px">
+
+      <!-- Cenário A -->
+      <div class="anim-scenario" id="${id}-scA">
+        <div class="anim-scenario-label red">
+          <i class="fa-solid fa-triangle-exclamation"></i> ${s.scenarioA.label}
+        </div>
+        <div class="anim-stage" id="${id}-stageA">
+          <!-- operador central sobrecarregado -->
+          <div class="anim-operator overloaded" id="${id}-opA">
+            <div class="anim-avatar red-av">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="anim-key-cloud" id="${id}-cloud">
+              <i class="fa-solid fa-key"></i><i class="fa-solid fa-key"></i>
+              <i class="fa-solid fa-key"></i><i class="fa-solid fa-key"></i>
+              <i class="fa-solid fa-key"></i><i class="fa-solid fa-key"></i>
+            </div>
+            <div class="anim-label">${s.scenarioA.operatorLabel}</div>
+          </div>
+          <!-- 4 operadores aguardando -->
+          <div class="anim-waiting-row">
+            ${[1,2,3,4].map(n => `
+              <div class="anim-waiting-op" id="${id}-wop${n}">
+                <div class="anim-avatar muted-av"><i class="fa-solid fa-user"></i></div>
+                <div class="anim-wait-dot"></div>
+              </div>`).join('')}
+          </div>
+          <div class="anim-label muted" style="text-align:center;margin-top:4px">${s.scenarioA.waitLabel}</div>
+        </div>
+      </div>
+
+      <!-- Cenário B -->
+      <div class="anim-scenario" id="${id}-scB">
+        <div class="anim-scenario-label green">
+          <i class="fa-solid fa-circle-check"></i> ${s.scenarioB.label}
+        </div>
+        <div class="anim-stage" id="${id}-stageB">
+          <div class="anim-ops-row">
+            ${[1,2,3,4,5].map(n => `
+              <div class="anim-free-op" id="${id}-fop${n}">
+                <div class="anim-avatar green-av"><i class="fa-solid fa-user"></i></div>
+                <div class="anim-phone" id="${id}-ph${n}">
+                  <i class="fa-solid fa-mobile-screen"></i>
+                  <div class="anim-scan-line" id="${id}-scan${n}"></div>
+                </div>
+                <div class="anim-plate" id="${id}-pl${n}">
+                  <i class="fa-solid fa-car"></i>
+                </div>
+              </div>`).join('')}
+          </div>
+          <div class="anim-label" style="text-align:center;color:var(--accent);margin-top:4px">${s.scenarioB.freeLabel}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      .anim-scenario { background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px; }
+      .anim-scenario-label { font-family:var(--font-head);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px; }
+      .anim-scenario-label.red { color:var(--red); }
+      .anim-scenario-label.green { color:var(--accent); }
+      .anim-stage { display:flex;flex-direction:column;align-items:center;gap:8px; }
+      .anim-avatar { width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0; }
+      .red-av { background:var(--red-dim);color:var(--red);border:2px solid rgba(255,77,109,.3); }
+      .muted-av { background:var(--surface);color:var(--muted2);border:2px solid var(--border); }
+      .green-av { background:var(--accent-dim2);color:var(--accent);border:2px solid rgba(0,229,160,.3); }
+      .anim-label { font-size:10px;color:var(--muted);font-family:var(--font-head);font-weight:600;letter-spacing:.04em; }
+      .anim-label.muted { color:var(--muted2); }
+
+      /* Cenário A */
+      .anim-operator { display:flex;flex-direction:column;align-items:center;gap:4px; }
+      .anim-key-cloud { display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:80px;margin:2px 0; }
+      .anim-key-cloud i { font-size:10px;color:var(--red);opacity:.7;animation:key-wobble 1.4s ease-in-out infinite; }
+      .anim-key-cloud i:nth-child(2) { animation-delay:.15s; }
+      .anim-key-cloud i:nth-child(3) { animation-delay:.3s; }
+      .anim-key-cloud i:nth-child(4) { animation-delay:.45s; }
+      .anim-key-cloud i:nth-child(5) { animation-delay:.6s; }
+      .anim-key-cloud i:nth-child(6) { animation-delay:.75s; }
+      @keyframes key-wobble {
+        0%,100% { transform:rotate(-10deg) scale(1); opacity:.7; }
+        50% { transform:rotate(10deg) scale(1.15); opacity:1; }
+      }
+      .anim-waiting-row { display:flex;gap:12px;justify-content:center;align-items:flex-end; }
+      .anim-waiting-op { display:flex;flex-direction:column;align-items:center;gap:4px; }
+      .anim-wait-dot { width:6px;height:6px;border-radius:50%;background:var(--amber);animation:wait-pulse 1.2s ease-in-out infinite; }
+      .anim-waiting-op:nth-child(2) .anim-wait-dot { animation-delay:.3s; }
+      .anim-waiting-op:nth-child(3) .anim-wait-dot { animation-delay:.6s; }
+      .anim-waiting-op:nth-child(4) .anim-wait-dot { animation-delay:.9s; }
+      @keyframes wait-pulse {
+        0%,100% { opacity:.3;transform:scale(1); }
+        50% { opacity:1;transform:scale(1.4); }
+      }
+
+      /* Cenário B */
+      .anim-ops-row { display:flex;gap:8px;justify-content:center;align-items:flex-end; }
+      .anim-free-op { display:flex;flex-direction:column;align-items:center;gap:3px; }
+      .anim-phone { position:relative;font-size:16px;color:var(--accent);line-height:1; }
+      .anim-scan-line {
+        position:absolute;top:20%;left:0;right:0;height:2px;
+        background:linear-gradient(90deg,transparent,var(--accent),transparent);
+        animation:scan 1.6s ease-in-out infinite;
+        border-radius:1px;
+      }
+      .anim-free-op:nth-child(2) .anim-scan-line { animation-delay:.32s; }
+      .anim-free-op:nth-child(3) .anim-scan-line { animation-delay:.64s; }
+      .anim-free-op:nth-child(4) .anim-scan-line { animation-delay:.96s; }
+      .anim-free-op:nth-child(5) .anim-scan-line { animation-delay:1.28s; }
+      @keyframes scan {
+        0% { top:10%;opacity:0; }
+        20% { opacity:1; }
+        80% { opacity:1; }
+        100% { top:80%;opacity:0; }
+      }
+      .anim-plate { font-size:10px;color:var(--muted);animation:plate-flash 1.6s ease-in-out infinite; }
+      .anim-free-op:nth-child(2) .anim-plate { animation-delay:.32s; }
+      .anim-free-op:nth-child(3) .anim-plate { animation-delay:.64s; }
+      .anim-free-op:nth-child(4) .anim-plate { animation-delay:.96s; }
+      .anim-free-op:nth-child(5) .anim-plate { animation-delay:1.28s; }
+      @keyframes plate-flash {
+        0%,40% { color:var(--muted);transform:scale(1); }
+        60% { color:var(--accent);transform:scale(1.2); }
+        100% { color:var(--muted);transform:scale(1); }
+      }
+    </style>`;
 }
 
 // ──────────────────────────────────────────────
