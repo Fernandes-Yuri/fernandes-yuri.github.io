@@ -425,7 +425,18 @@ function renderConclusion(s) {
         ${s.ctaBox.text}<br>
         <span style="font-weight:400;font-size:11px">${s.ctaBox.sub}</span>
       </div>
-    </div>`;
+    </div>
+    ${s.pdfUrl ? `
+    <a href="${s.pdfUrl}" target="_blank" rel="noopener" download
+      style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;padding:13px 18px;background:var(--surface2);border:1px solid var(--border2);border-radius:10px;text-decoration:none;cursor:pointer">
+      <i class="fa-solid fa-file-pdf" style="color:var(--red);font-size:16px"></i>
+      <div>
+        <div style="font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--text)">Baixar proposta em PDF</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px">Documento completo para leitura offline</div>
+      </div>
+      <i class="fa-solid fa-arrow-down" style="color:var(--muted);font-size:12px;margin-left:auto"></i>
+    </a>` : ''}
+    `;
 }
 
 // ──────────────────────────────────────────────
